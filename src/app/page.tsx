@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -6,11 +7,20 @@ export default function Home() {
       {/* Hero Section */}
       <section className="section-padding relative overflow-hidden">
         <div className="container-custom text-center relative z-10">
+          <div className="mb-8">
+            <Image
+              src="/logo.svg"
+              alt="YourCommunity.Space"
+              width={120}
+              height={120}
+              className="mx-auto h-24 w-auto"
+            />
+          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Empower Your Community Through Events
+            Your Space for Community Events
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            A platform built for organizers, by organizers. Raise funds for your events, connect with your community, and make a lasting impact.
+            A non-profit platform built for organizers, by organizers. Raise funds for your events, connect with your community, and make a lasting impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/organizer/signup" className="btn-primary">
@@ -27,7 +37,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="section-padding bg-white relative">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Platform?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose YourCommunity.Space?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 rounded-xl bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
               <h3 className="text-xl font-semibold mb-4">Fundraising Made Easy</h3>
@@ -54,7 +64,7 @@ export default function Home() {
       {/* How It Works Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">How YourCommunity.Space Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { step: 1, title: 'Create Your Event', desc: 'Set up your event details and funding goals' },
@@ -77,9 +87,9 @@ export default function Home() {
       {/* CTA Section */}
       <section className="section-padding bg-primary-600 relative overflow-hidden">
         <div className="container-custom text-center relative z-10">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Make a Difference?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Create Your Community Space?</h2>
           <p className="text-xl text-primary-100 mb-8">
-            Join our community of organizers and start creating meaningful events today.
+            Join YourCommunity.Space today and start creating meaningful events that bring people together.
           </p>
           <Link href="/organizer/signup" className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors">
             Get Started Now
