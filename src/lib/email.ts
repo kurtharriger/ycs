@@ -1,12 +1,13 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import { awsCredentialsProvider } from '@vercel/functions/oidc';
 
 const ses = new SESClient({
   region: process.env.AWS_REGION || 'us-east-1',
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
-  },
+  credentials: awsCredentialsProvider({
+    roleArn: process.env.AWS_ROLE_ARN || '',
+  }),
 });
+
 
 export async function sendEmail({
   to,
