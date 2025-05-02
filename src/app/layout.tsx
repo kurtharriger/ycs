@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -56,6 +58,8 @@ export default function RootLayout({
         </header>
         <main className="flex-grow w-full">
           {children}
+          <SpeedInsights />
+          <Analytics />
         </main>
         <footer className="bg-gray-50 w-full">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
