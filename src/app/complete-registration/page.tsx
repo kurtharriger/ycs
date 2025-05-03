@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import Link from 'next/link';
 
 export default function CompleteRegistrationPage() {
   const router = useRouter();
@@ -99,6 +100,19 @@ export default function CompleteRegistrationPage() {
                 onChange={handleChange}
               />
             </div>
+          </div>
+
+          <div className="text-center text-sm text-gray-500">
+            <p>
+              By completing your profile, you agree to our{' '}
+              <Link href="/terms" className="text-primary-600 hover:text-primary-700">
+                Terms of Service
+              </Link>
+              {' '}and{' '}
+              <Link href="/privacy" className="text-primary-600 hover:text-primary-700">
+                Privacy Policy
+              </Link>
+            </p>
           </div>
 
           <div>

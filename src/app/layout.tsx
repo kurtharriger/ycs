@@ -16,18 +16,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://yourcommunity.space"),
 };
 
-// Get build information
-const getBuildInfo = () => {
-  const env = process.env.NODE_ENV;
-  const vercelEnv = process.env.VERCEL_ENV;
-  const gitCommit = process.env.VERCEL_GIT_COMMIT_SHA;
-
+function getBuildInfo() {
   return {
-    env,
-    vercelEnv,
-    gitCommit: gitCommit ? gitCommit.substring(0, 7) : 'local',
+    env: process.env.VERCEL_ENV || process.env.NODE_ENV || 'development',
+    gitCommit: process.env.VERCEL_GIT_COMMIT_SHA ? process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 7) : 'local',
   };
-};
+}
 
 export default function RootLayout({
   children,
@@ -98,8 +92,16 @@ export default function RootLayout({
                 <p className="text-center text-gray-500 text-sm">
                   © {new Date().getFullYear()} YourCommunity.Space. All rights reserved.
                 </p>
+                <div className="flex space-x-4 text-sm text-gray-500">
+                  <Link href="/privacy" className="hover:text-primary-600">
+                    Privacy Policy
+                  </Link>
+                  <Link href="/terms" className="hover:text-primary-600">
+                    Terms of Service
+                  </Link>
+                </div>
                 <div className="text-center text-gray-400 text-xs">
-                  <p>Environment: {buildInfo.vercelEnv || buildInfo.env}</p>
+                  <p>Environment: {buildInfo.env}</p>
                   {buildInfo.gitCommit && (
                     <p>Commit: {buildInfo.gitCommit}</p>
                   )}
