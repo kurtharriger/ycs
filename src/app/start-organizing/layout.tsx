@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Start Organizing - Coming Soon',
+  title: 'Start Organizing - YourCommunity.Space',
   description: 'Start organizing events in your community',
 }
 

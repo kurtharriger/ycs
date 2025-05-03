@@ -1,11 +1,24 @@
-import { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Start Organizing - YourCommunity.Space',
-  description: 'Start organizing events in your community',
-}
+import { requestEarlyAccess } from '../actions'
+import { useState } from 'react'
 
 export default function StartOrganizingPage() {
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleSubmit = async () => {
+    try {
+      const result = await requestEarlyAccess()
+      if (result.success) {
+        setIsSubmitted(true)
+      }
+    } catch (error) {
+      console.error('Failed to submit request:', error)
+      setError('Failed to submit request. Please try again.')
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-lg">
@@ -18,15 +31,23 @@ export default function StartOrganizingPage() {
             Events are currently by invite only. Request early access to become an organizer.
           </p>
           <div className="space-y-4">
-            <a
-              href="mailto:support@yourcommunity.space?subject=Request%20Early%20Access%20to%20Organize%20Events"
-              className="block w-full bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-            >
-              Request Early Access
-            </a>
-            <p className="text-sm text-gray-500">
-              Our team will review your request and get back to you soon.
-            </p>
+            {isSubmitted ? (
+              <div className="bg-green-50 border border-green-200 text-green-600 px-4 py-3 rounded">
+                Thanks for your interest! We will reach out when your access is granted.
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={handleSubmit}
+                  className="block w-full bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
+                  Request Early Access
+                </button>
+                {error && (
+                  <p className="text-sm text-red-500">{error}</p>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
