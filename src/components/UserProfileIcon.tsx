@@ -1,37 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-
-interface UserInfo {
-  name: string;
-  email: string;
-}
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function UserProfileIcon() {
-  const [user, setUser] = useState<UserInfo | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading } = useAuth();
   const pathname = usePathname();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await fetch('/api/profile');
-        if (response.ok) {
-          const data = await response.json();
-          setUser(data);
-        }
-      } catch (error) {
-        console.error('Error checking auth status:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    checkAuth();
-  }, [pathname]); // Re-run when pathname changes
 
   // Don't show anything on the complete-registration page
   if (pathname === '/complete-registration') {

@@ -1,35 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function CompleteRegistrationPage() {
   const router = useRouter();
+  const { updateUser } = useAuth();
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
   });
-
-  useEffect(() => {
-    // Check if user is already authenticated
-    const checkAuth = async () => {
-      try {
-        const response = await fetch('/api/profile');
-        if (response.ok) {
-          const data = await response.json();
-          if (data.name) {
-            // If user already has a name, redirect to home
-            router.push('/');
-          }
-        }
-      } catch (error) {
-        console.error('Error checking auth status:', error);
-      }
-    };
-
-    checkAuth();
-  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,8 +34,13 @@ export default function CompleteRegistrationPage() {
         throw new Error(data.error || 'Failed to complete registration');
       }
 
-      // Force a hard refresh to ensure auth state is updated
-      window.location.href = '/';
+      await response.json();
+      updateUser({
+        name: formData.name,
+        phoneNumber: formData.phone,
+      });
+
+      router.push('/');
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to complete registration';
       setError(errorMessage);

@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function LoginPage() {
+  const router = useRouter();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [step, setStep] = useState<'email' | 'code'>('email');
@@ -52,29 +56,12 @@ export default function LoginPage() {
     setSuccess('');
 
     try {
-      const response = await fetch('/api/auth/verify-code', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, code }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to verify code');
-      }
-
+      await login(email, code);
       setSuccess('Successfully verified! Redirecting...');
 
       // Small delay to show the success message
       setTimeout(() => {
-        if (data.needsProfileCompletion) {
-          window.location.href = '/complete-registration';
-        } else {
-          window.location.href = '/';
-        }
+        router.push('/');
       }, 1000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to verify code');
