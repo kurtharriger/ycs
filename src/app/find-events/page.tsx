@@ -12,7 +12,7 @@ export default function FindEventsPage() {
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Coming Soon</h1>
           <p className="text-gray-600 mb-6">
-            We're working hard to bring you the best event discovery experience.
+            We&apos;re working hard to bring you the best event discovery experience.
           </p>
           <p className="text-gray-600">
             For early access, please reach out to{' '}
