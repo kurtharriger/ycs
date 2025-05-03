@@ -2,10 +2,40 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import { useState } from 'react';
 
 export default function UserProfileIcon() {
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
+  const pathname = usePathname();
+  const router = useRouter();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      setIsLoggingOut(true);
+      await logout();
+      router.push('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
+
+  // Show logout button on complete-registration page
+  if (pathname === '/complete-registration') {
+    return (
+      <button
+        onClick={handleLogout}
+        disabled={isLoggingOut}
+        className="text-gray-600 hover:text-primary-600 text-sm sm:text-base px-2 py-1 disabled:opacity-50"
+      >
+        {isLoggingOut ? 'Logging out...' : 'Logout'}
+      </button>
+    );
+  }
 
   if (!user) {
     return (
