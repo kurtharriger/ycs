@@ -23,10 +23,10 @@ export default function Home() {
             A non-profit platform built for organizers, by organizers. Raise funds for your events, connect with your community, and make a lasting impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/organizer/signup" className="btn-primary">
+            <Link href="/start-organizing" className="btn-primary">
               Start Organizing
             </Link>
-            <Link href="/events" className="btn-secondary">
+            <Link href="/find-events" className="btn-secondary">
               Find Events
             </Link>
           </div>
@@ -91,7 +91,7 @@ export default function Home() {
           <p className="text-xl text-primary-100 mb-8">
             Join YourCommunity.Space today and start creating meaningful events that bring people together.
           </p>
-          <Link href="/organizer/signup" className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors">
+          <Link href="/start-organizing" className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors">
             Get Started Now
           </Link>
         </div>

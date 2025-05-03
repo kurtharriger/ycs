@@ -53,13 +53,13 @@ export default function RootLayout({
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4">
                   <Link
-                    href="/events"
+                    href="/find-events"
                     className="text-gray-600 hover:text-primary-600 text-sm sm:text-base px-2 py-1"
                   >
                     Find Events
                   </Link>
                   <Link
-                    href="/organizer/signup"
+                    href="/start-organizing"
                     className="bg-primary-600 text-white text-sm sm:text-base px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:bg-primary-700 whitespace-nowrap"
                   >
                     Start Organizing
