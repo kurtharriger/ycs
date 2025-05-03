@@ -16,6 +16,6 @@ export function getBaseUrl(request?: Request): string {
   }
 
   // In production, use the actual host with https
-  const host = request?.headers.get('host') || 'yourcommunity.space';
+  const host = request?.headers.get('host') ?? 'yourcommunity.space';
   return `https://${host}`;
 }

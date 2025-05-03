@@ -31,12 +31,19 @@ export async function POST(request: Request) {
       userId: string;
     };
 
-    // Update the user
+    // Update the user and create their personal community
     const appUser = await prisma.appUser.update({
       where: { id: decoded.userId },
       data: {
         name,
         phoneNumber,
+        personalCommunity: {
+          create: {
+            name: `${name}'s Community`,
+            type: 'PERSONAL',
+            description: 'Personal Community'
+          }
+        }
       },
     });
 

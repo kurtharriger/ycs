@@ -1,10 +1,22 @@
 import debug from 'debug';
+import { ensureAdmin } from '../scripts/ensure-admin';
 
 const log = debug('ycs:env');
 
-export async function register() {
+interface BuildInfo {
+  environment: string;
+  vercelEnv: string;
+  commit: string;
+  branch: string;
+  region: string;
+  buildTime: string;
+}
+
+export async function register(): Promise<void> {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
-    const buildInfo = {
+    await ensureAdmin();
+
+    const buildInfo: BuildInfo = {
       environment: process.env.NODE_ENV || 'development',
       vercelEnv: process.env.VERCEL_ENV || 'local',
       commit: process.env.VERCEL_GIT_COMMIT_SHA || 'local',
@@ -24,7 +36,7 @@ export async function register() {
 
     // Log environment variables with sensitive values masked
     log('\n=== Environment Variables ===');
-    const envVars = Object.entries(process.env)
+    const envVars: [string, string | undefined][] = Object.entries(process.env)
       .sort(([a], [b]) => a.localeCompare(b));
 
     for (const [key, value] of envVars) {

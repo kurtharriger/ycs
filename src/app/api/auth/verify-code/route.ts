@@ -79,13 +79,19 @@ export async function POST(request: Request) {
         data: {
           email,
           emailVerified: new Date(), // Since they just verified their email
+          role: email === process.env.ADMIN_USER ? 'ADMIN' : 'MEMBER',
+          status: 'ACTIVE'
         },
       });
     } else if (!appUser.emailVerified) {
       // Update existing user's email verification status
       appUser = await prisma.appUser.update({
         where: { id: appUser.id },
-        data: { emailVerified: new Date() },
+        data: {
+          emailVerified: new Date(),
+          // Update role if this is the admin user
+          ...(email === process.env.ADMIN_USER ? { role: 'ADMIN' } : {})
+        },
       });
     }
 
