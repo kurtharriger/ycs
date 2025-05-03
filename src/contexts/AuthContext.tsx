@@ -12,7 +12,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   error: string | null;
-  login: (email: string, code: string) => Promise<void>;
+  login: (email: string, code: string) => Promise<{ needsProfileCompletion: boolean }>;
   logout: () => Promise<void>;
   updateUser: (userData: Partial<User>) => void;
 }
@@ -61,6 +61,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (data.user) {
         setUser(data.user);
       }
+
+      return { needsProfileCompletion: data.needsProfileCompletion };
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to login');
       throw err;

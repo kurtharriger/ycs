@@ -37,8 +37,8 @@ export default function UserProfileIcon() {
       className="flex items-center justify-center w-8 h-8 rounded-full overflow-hidden bg-gray-200 hover:bg-gray-300 transition-colors"
     >
       <Image
-        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6366f1&color=fff`}
-        alt={user.name}
+        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'User')}&background=6366f1&color=fff`}
+        alt={`${user.name || 'User'} profile picture`}
         width={32}
         height={32}
         className="object-cover"

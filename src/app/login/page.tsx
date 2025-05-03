@@ -56,12 +56,16 @@ export default function LoginPage() {
     setSuccess('');
 
     try {
-      await login(email, code);
+      const { needsProfileCompletion } = await login(email, code);
       setSuccess('Successfully verified! Redirecting...');
 
       // Small delay to show the success message
       setTimeout(() => {
-        router.push('/');
+        if (needsProfileCompletion) {
+          router.push('/complete-registration');
+        } else {
+          router.push('/');
+        }
       }, 1000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to verify code');
