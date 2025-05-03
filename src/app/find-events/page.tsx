@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Find Events - Coming Soon',
+  title: 'Find Events - YourCommunity.Space',
   description: 'Find events in your community',
 }
 
@@ -14,11 +15,12 @@ export default function FindEventsPage() {
           <p className="text-gray-600 mb-6">
             We&apos;re working hard to bring you the best event discovery experience.
           </p>
-          <p className="text-gray-600">
-            For early access, please reach out to{' '}
-            <a href="mailto:support@yourcommunity.space" className="text-blue-600 hover:text-blue-800">
-              support@yourcommunity.space
-            </a>
+          <p className="text-gray-600 mb-6">
+            Events are currently by invite only. For access reach out to your community organizer or{' '}
+            <Link href="/start-organizing" className="text-primary-600 hover:text-primary-800">
+              start your own
+            </Link>
+            .
           </p>
         </div>
       </div>

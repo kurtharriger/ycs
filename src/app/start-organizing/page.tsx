@@ -1,3 +1,10 @@
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Start Organizing - YourCommunity.Space',
+  description: 'Start organizing events in your community',
+}
+
 export default function StartOrganizingPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -7,12 +14,20 @@ export default function StartOrganizingPage() {
           <p className="text-gray-600 mb-6">
             We&apos;re working hard to bring you the best event organization tools.
           </p>
-          <p className="text-gray-600">
-            For early access, please reach out to{' '}
-            <a href="mailto:support@yourcommunity.space" className="text-blue-600 hover:text-blue-800">
-              support@yourcommunity.space
-            </a>
+          <p className="text-gray-600 mb-6">
+            Events are currently by invite only. Request early access to become an organizer.
           </p>
+          <div className="space-y-4">
+            <a
+              href="mailto:support@yourcommunity.space?subject=Request%20Early%20Access%20to%20Organize%20Events"
+              className="block w-full bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            >
+              Request Early Access
+            </a>
+            <p className="text-sm text-gray-500">
+              Our team will review your request and get back to you soon.
+            </p>
+          </div>
         </div>
       </div>
     </div>

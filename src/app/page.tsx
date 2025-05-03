@@ -30,6 +30,13 @@ export default function Home() {
               Find Events
             </Link>
           </div>
+          <p className="mt-4 text-gray-600 text-sm">
+            Events are currently by invite only. Connect with your community organizer or{' '}
+            <Link href="/start-organizing" className="text-primary-600 hover:text-primary-800">
+              create your own
+            </Link>
+            .
+          </p>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent"></div>
       </section>
