@@ -1,3 +1,16 @@
+/**
+ * @file UserProfileIcon.tsx
+ * @description A dynamic user profile component that handles different authentication states
+ * and user profile completion states. Displays user avatar, login link, or profile
+ * completion prompt based on the current user state.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <UserProfileIcon />
+ * ```
+ */
+
 'use client';
 
 import Link from 'next/link';
@@ -6,6 +19,20 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import { useState } from 'react';
 
+/**
+ * UserProfileIcon Component
+ *
+ * @returns {JSX.Element} Renders different UI states based on authentication:
+ * - Loading state with pulse animation
+ * - Login link for unauthenticated users
+ * - "Complete Profile" link for users without names
+ * - Profile picture with user's initials for authenticated users
+ * - Special logout button on complete-registration page
+ *
+ * @remarks
+ * Uses UI Avatars API to generate profile pictures based on user's name
+ * Implements responsive design with Tailwind CSS
+ */
 export default function UserProfileIcon() {
   const { user, loading, logout } = useAuth();
   const pathname = usePathname();

@@ -1,6 +1,32 @@
+/**
+ * @file page.tsx
+ * @description The main landing page of YourCommunity.Space. Implements a modern,
+ * responsive design that communicates the platform's mission and value proposition.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * // This is the main page component, accessed at the root URL '/'
+ * ```
+ */
+
 import Link from 'next/link';
 import Image from 'next/image';
 
+/**
+ * Home Page Component
+ *
+ * @returns {JSX.Element} A responsive landing page with:
+ * - Hero section with mission statement
+ * - Features section highlighting platform benefits
+ * - "How It Works" section with step-by-step guide
+ * - Call-to-action section
+ *
+ * @remarks
+ * - Uses Next.js Link and Image components for optimized navigation and image loading
+ * - Implements responsive design with Tailwind CSS
+ * - Follows the platform's mission of serving people, not profit
+ */
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
