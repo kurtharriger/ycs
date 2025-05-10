@@ -44,7 +44,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="section-padding bg-white relative">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">Why We're Different</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why We&apos;re Different</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 rounded-xl bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
               <h3 className="text-xl font-semibold mb-4">People Over Profit</h3>
