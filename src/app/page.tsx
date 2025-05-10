@@ -17,10 +17,10 @@ export default function Home() {
             />
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Your Space for Community Events
+            Make Space for What Matters
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            A non-profit platform built for organizers, by organizers. Raise funds for your events, connect with your community, and make a lasting impact.
+            A platform built for people, not profit. Where community comes before content, and connection matters more than engagement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-organizing" className="btn-primary">
@@ -31,9 +31,9 @@ export default function Home() {
             </Link>
           </div>
           <p className="mt-4 text-gray-600 text-sm">
-            Events are currently by invite only. Connect with your community organizer or{' '}
+            Join us in reclaiming the digital commons. Connect with your community organizer or{' '}
             <Link href="/start-organizing" className="text-primary-600 hover:text-primary-800">
-              create your own
+              create your own space
             </Link>
             .
           </p>
@@ -44,24 +44,24 @@ export default function Home() {
       {/* Features Section */}
       <section className="section-padding bg-white relative">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose YourCommunity.Space?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why We're Different</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 rounded-xl bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <h3 className="text-xl font-semibold mb-4">Fundraising Made Easy</h3>
+              <h3 className="text-xl font-semibold mb-4">People Over Profit</h3>
               <p className="text-gray-600">
-                Set up crowdfunding campaigns for your events with transparent tracking and easy payouts.
+                We serve communities, not shareholders. No ads, no engagement metrics, just meaningful connections.
               </p>
             </div>
             <div className="p-8 rounded-xl bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <h3 className="text-xl font-semibold mb-4">Community Focused</h3>
+              <h3 className="text-xl font-semibold mb-4">Open & Accessible</h3>
               <p className="text-gray-600">
-                Build and engage with your community through meaningful events and shared experiences.
+                Built for organizers and volunteers. No fees between people and events, no barriers to community.
               </p>
             </div>
             <div className="p-8 rounded-xl bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <h3 className="text-xl font-semibold mb-4">Non-Profit Mission</h3>
+              <h3 className="text-xl font-semibold mb-4">Deep Connection</h3>
               <p className="text-gray-600">
-                We&apos;re committed to supporting organizers and building stronger communities, not profits.
+                Technology that brings people together, not apart. A space to gather, not perform.
               </p>
             </div>
           </div>
@@ -71,13 +71,13 @@ export default function Home() {
       {/* How It Works Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center mb-12">How YourCommunity.Space Works</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Join the Movement</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: 1, title: 'Create Your Event', desc: 'Set up your event details and funding goals' },
-              { step: 2, title: 'Share with Community', desc: 'Promote your event and funding campaign' },
-              { step: 3, title: 'Receive Support', desc: 'Collect funds and manage your event' },
-              { step: 4, title: 'Make an Impact', desc: 'Host your event and grow your community' },
+              { step: 1, title: 'Create Space', desc: 'Set up your community space and invite others' },
+              { step: 2, title: 'Build Together', desc: 'Connect with like-minded organizers and volunteers' },
+              { step: 3, title: 'Grow Community', desc: 'Host events that bring people together' },
+              { step: 4, title: 'Make Impact', desc: 'Create lasting change in your community' },
             ].map((item) => (
               <div key={item.step} className="text-center group">
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors">
@@ -94,12 +94,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="section-padding bg-primary-600 relative overflow-hidden">
         <div className="container-custom text-center relative z-10">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Create Your Community Space?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Reclaim Community?</h2>
           <p className="text-xl text-primary-100 mb-8">
-            Join YourCommunity.Space today and start creating meaningful events that bring people together.
+            If you&apos;ve felt something human is missing online, if you&apos;ve wanted a place to gather, not perform...
+            This is Your Community Space.
           </p>
           <Link href="/start-organizing" className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors">
-            Get Started Now
+            Join Us Today
           </Link>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-primary-500/20 to-transparent"></div>
