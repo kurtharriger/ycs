@@ -4,7 +4,7 @@
 
 # Our Mission
 
-## The internet promised connection. We got onetization.
+## The internet promised connection. We got monetization.
 
 Most platforms today are built for profit.  
 They optimize for ads, not relationships.  
